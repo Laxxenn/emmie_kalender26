@@ -2,7 +2,7 @@
   "use strict";
 
   var DECEMBER = 11; // JS months are 0-based
-  var MONTH_NAME = "December";
+  var MONTH_NAME = "december";
   var params = new URLSearchParams(location.search);
   var PREVIEW = params.has("preview") || CONFIG.unlockAll === true;
   var YEAR = CONFIG.year || new Date().getFullYear();
@@ -62,17 +62,17 @@
     var el = document.getElementById("status");
     var total = CONFIG.days.length;
     if (PREVIEW) {
-      el.textContent = "Preview: every door is unlocked. Remove ?preview from the address to see the real dates.";
+      el.textContent = "Förhandsvisning: alla luckor är upplåsta. Ta bort ?preview från adressen för att se de riktiga datumen.";
       return;
     }
     var openCount = CONFIG.days.filter(function (d) { return isUnlocked(d.day); }).length;
     if (openCount === 0) {
-      el.textContent = "The first door opens on " + MONTH_NAME + " 1.";
+      el.textContent = "Den första luckan öppnas den 1 " + MONTH_NAME + ".";
     } else if (openCount >= total) {
-      el.textContent = "All " + total + " doors are open.";
+      el.textContent = "Alla " + total + " luckor är öppna.";
     } else {
-      el.textContent = openCount + " of " + total + " doors are open. The next one opens on " +
-        MONTH_NAME + " " + (openCount + 1) + ".";
+      el.textContent = openCount + " av " + total + " luckor är öppna. Nästa öppnas den " +
+        (openCount + 1) + " " + MONTH_NAME + ".";
     }
   }
 
@@ -99,10 +99,10 @@
     var unlocked = isUnlocked(day.day);
     if (!unlocked) {
       btn.classList.add("is-locked");
-      btn.setAttribute("aria-label", "Door " + day.day + ", locked until " + MONTH_NAME + " " + day.day);
+      btn.setAttribute("aria-label", "Lucka " + day.day + ", låst till den " + day.day + " " + MONTH_NAME);
     } else {
       btn.classList.add(opened.indexOf(day.day) !== -1 ? "is-open" : "is-ready");
-      btn.setAttribute("aria-label", "Door " + day.day);
+      btn.setAttribute("aria-label", "Lucka " + day.day);
     }
 
     btn.addEventListener("click", function () { onDoorClick(day, btn); });
@@ -112,7 +112,7 @@
 
   function onDoorClick(day, btn) {
     if (!isUnlocked(day.day)) {
-      toast("Door " + day.day + " opens on " + MONTH_NAME + " " + day.day + ".");
+      toast("Lucka " + day.day + " öppnas den " + day.day + " " + MONTH_NAME + ".");
       return;
     }
     if (opened.indexOf(day.day) === -1) {
@@ -136,8 +136,8 @@
   }
 
   function showPanel(day) {
-    document.getElementById("panel-date").textContent = MONTH_NAME + " " + day.day;
-    document.getElementById("panel-title").textContent = day.title || "Door " + day.day;
+    document.getElementById("panel-date").textContent = day.day + " " + MONTH_NAME;
+    document.getElementById("panel-title").textContent = day.title || "Lucka " + day.day;
     document.getElementById("panel-message").textContent = day.message || "";
 
     var figure = document.getElementById("panel-figure");
@@ -161,7 +161,7 @@
     var hasQr = false;
     if (day.qr) {
       var qrImg = document.createElement("img");
-      qrImg.alt = "QR code for door " + day.day;
+      qrImg.alt = "QR-kod för lucka " + day.day;
       qrImg.src = day.qr;
       qrArt.appendChild(qrImg);
       hasQr = true;
