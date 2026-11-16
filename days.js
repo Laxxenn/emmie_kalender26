@@ -13,10 +13,9 @@
   Add ?preview to the address (index.html?preview) to open every door while you edit.
 */
 const CONFIG = {
-  title: "Our Christmas Calendar",
-  subtitle: "One door a day, from December 1 to 24.",
+  title: "Emmies Julkalender :D",
   year: 2026,
-  shuffle: true,
+  shuffle: false,
   days: [
     { day: 1, title: "Door 1", message: "Write your message here.", image: "", qr: "", link: "" },
     { day: 2, title: "Door 2", message: "Write your message here.", image: "", qr: "", link: "" },
