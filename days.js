@@ -17,7 +17,7 @@ const CONFIG = {
   year: 2026,
   shuffle: false,
   days: [
-    { day: 1, title: "Lucka 1", message: "Skriv ditt meddelande här.", image: "", qr: "", link: "" },
+    { day: 1, title: "Lucka 1", message: "Abomination puh.", image: "", qr: "", link: "https://youtu.be/AcIh2cLL_IQ" },
     { day: 2, title: "Lucka 2", message: "Skriv ditt meddelande här.", image: "", qr: "", link: "" },
     { day: 3, title: "Lucka 3", message: "Skriv ditt meddelande här.", image: "", qr: "", link: "" },
     { day: 4, title: "Lucka 4", message: "Skriv ditt meddelande här.", image: "", qr: "", link: "" },
